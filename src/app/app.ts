@@ -29,6 +29,28 @@ export class App implements AfterViewInit {
       .bindPopup('<b>Hello from Angular!</b><br>This is a Leaflet marker.')
       .openPopup();
 
+    const locations = [
+      {
+        name: 'Big Ben',
+        coordinates: [51.5007, -0.1246] as L.LatLngExpression
+      },
+      {
+        name: 'Tower Bridge',
+        coordinates: [51.5055, -0.0754] as L.LatLngExpression
+      },
+      {
+        name: 'Buckingham Palace',
+        coordinates: [51.5014, -0.1419] as L.LatLngExpression
+      }
+    ];
+
+    locations.forEach((location) => {
+      L.marker(location.coordinates)
+        .addTo(this.map)
+        .bindPopup(`<b>${location.name}</b>`);
+    });
+
+
     this.map.on('click', (event: L.LeafletMouseEvent) => {
       L.popup()
         .setLatLng(event.latlng)
