@@ -9,3 +9,7 @@ body {
 body {
   font-family: Arial, sans-serif;
 }
+
+.leaflet-marker-shadow {
+  display: none;
+}
